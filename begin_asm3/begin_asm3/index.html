@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chore Door!</title>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+      <div class="modau">
+          <img style="margin-left: 50%" src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/logo.svg"></img>
+      </div>
+      <div class="candau">
+            <div class="noidung">
+                <p style="color: #00FFFF; font-size: 18px"> <img src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/star.svg"></img>  instruction  <img src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/star.svg"></img></p>
+            </div>
+      </div>
+    <div class="luatso">
+                <p style="width: 40%; font-size: 35px; margin-top: 0px; margin-left: 25%; color: #00FFFF;">1</p>
+                <p style="width: 40%; font-size: 35px; margin-top: 0px; margin-left: 25%; color: #00FFFF;">2</p>
+                <p style="width: 40%; font-size: 35px; margin-top: 5px; margin-left: 25%; color: #00FFFF;">3</p>
+                <p style="width: 40%; font-size: 35px; margin-top: 5px; margin-left: 25%; color: #00FFFF;">4</p>
+    </div>
+    <div class="luatchu">
+                <p style="width: 60%; margin-top: 0px; margin-left: 25%; color: white;">Hiding behind one of these door is the ChoreBot</p>
+                <p style="width: 60%; margin-top: 60px; margin-left: 25%; color: white;">Your mission is to ocean all of the door without running into the ChoreBot</p>
+                <p style="width: 60%; margin-top: 60px; margin-left: 25%; color: white;">If you manage to avoid the CoreBot until the very last door, you win!</p>
+                <p style="width: 60%; margin-top: 60px; margin-left: 25%; color: white;">See if you can score a winning streak!</p>
+    </div>
+
+
+    <img id="myImg1" onclick="myFunction1()" src="" >
+    <img id="myImg2" onclick="myFunction2()" src="">
+    <img id="myImg3" onclick="myFunction3()" src="">
+
+    <div id="nutbam" onclick="batdau()" style="width: 75px; height: 50px; background-color: orange; margin-left: 41.5%; margin-top: 10px">GOOD LUCK!</div>
+
+    <div class="td1">
+                  <p style="color: white; margin-left: 70%;">current streak</p>
+                  <div id="sotd1">0</div>
+    </div>
+    <div class="td2">
+                  <p style="color: white; ">best streak</p>
+                  <div id="sotd2">0</div>
+    </div>
+    <script>
+                  var cs = 0;
+                  var bs = 0;
+                  var t=Math.floor(Math.random() * 3);
+                  var r=Math.floor(Math.random() * 3);
+                  while (r==t) {r=Math.floor(Math.random() * 3)};
+                  var h=Math.floor(Math.random() * 3);
+                  while (h==t || h==r) {h=Math.floor(Math.random() * 3)};
+                  var hinhanh = ["/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/robot.svg","/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/space.svg","/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/beach.svg"]
+                  function batdau() {
+                            document.getElementById("myImg1").src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/closed_door.svg"
+                            document.getElementById("myImg2").src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/closed_door.svg"
+                            document.getElementById("myImg3").src="/Users/ngoquangtu/Desktop/flowergarden/begin_asm3/images/begin_asm3/images/begin_asm3/images/begin_asm3/images/closed_door.svg"
+                            t=Math.floor(Math.random() * 3);
+                            r=Math.floor(Math.random() * 3);
+                            while (r==t) {r=Math.floor(Math.random() * 3)};
+                            h=Math.floor(Math.random() * 3);
+                            while (h==t || h==r) {h=Math.floor(Math.random() * 3)};
+                  }
+                            function myFunction1() {
+                                      document.getElementById("myImg1").src = hinhanh[t];
+                                      if (t==0) {
+                                                if (h==100 && r==100) {
+                                                    cs = cs+1;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("nutbam").innerHTML="continue";
+                                                }
+                                                else {
+                                                    document.getElementById("nutbam").innerHTML="play again!";
+                                                    if (bs<cs) {
+                                                         bs=cs;
+                                                    }
+                                                    cs=0;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("sotd2").innerHTML=bs;
+                                                }
+                                      }
+                                      else {
+                                            t=100;
+                                      }
+                            }
+                            function myFunction2() {
+                                      document.getElementById("myImg2").src = hinhanh[r];
+                                     if (r==0) {
+                                                if (h==100 && t==100) {
+                                                    cs = cs+1;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("nutbam").innerHTML="continue";
+                                                }
+                                                else {
+                                                    document.getElementById("nutbam").innerHTML="play again!";
+                                                    if (bs<cs) {
+                                                          bs=cs;
+                                                    }
+                                                    cs=0;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("sotd2").innerHTML=bs;
+                                                }
+                                      }
+                                      else {
+                                            r=100
+                                                }
+                            }
+                            function myFunction3() {
+                                      document.getElementById("myImg3").src = hinhanh[h];
+                                      if (h==0) {
+                                                if (t==100 && r==100) {
+                                                    cs = cs+1;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("nutbam").innerHTML="continue";
+                                                }
+                                                else {
+                                                    document.getElementById("nutbam").innerHTML="play again!";
+                                                    if (bs<cs) {
+                                                         bs=cs;
+                                                    }
+                                                    cs=0;
+                                                    document.getElementById("sotd1").innerHTML=cs;
+                                                    document.getElementById("sotd2").innerHTML=bs;
+                                                }
+                                      }
+                                      else {
+                                          h=100;
+                                      }
+                            }
+   </script>
+  </body>
+</html>
